@@ -19,3 +19,7 @@
 每类至少需 k 张图；增加新植物时在 data 下新建文件夹并放入图片后重新训练。
 
 # predict.py
+单张图片推理：输出植物类别（文件夹名）及概率。
+
+用法:
+  python predict.py --checkpoint runs/latest/best.pt --image path/to/one.png
