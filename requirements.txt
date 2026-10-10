@@ -1,0 +1,43 @@
+# ============================================================
+# 植物显微图分类项目 —— Python 依赖
+# 适用脚本:
+#   - trainv3_resnet50_full.py  (ResNet50 全量微调 + K-fold)
+#   - predictv3_resnet50.py     (K-fold ensemble 单图推理)
+#
+# 已验证环境: conda env "microscope"
+#   - Python 3.10.21
+#   - torch 2.7.1+cu126 / torchvision 0.22.1
+#   - NVIDIA RTX 4090, CUDA 12.6 (torch.cuda.is_available() == True)
+# 安装方式: pip install -r requirements.txt
+# ============================================================
+
+# ---------- 深度学习框架 ----------
+# 注意: torchvision 与 torch 版本必须严格对应 (torch 2.7.1 <-> torchvision 0.22.1)
+torch==2.7.1
+torchvision==0.22.1
+
+# ---------- 图像与数值处理 ----------
+numpy==2.2.6
+Pillow==12.3.0
+
+# ---------- 训练可视化 / 进度条 ----------
+matplotlib==3.10.9
+tqdm==4.70.0
+
+# ============================================================
+# GPU 版本说明 (CUDA 12.6)
+#
+# microscope 环境中安装的是 CUDA 12.6 构建版 torch 2.7.1+cu126。
+# 若需精确复现该构建, 请改用 PyTorch 官方源安装:
+#
+#   pip install torch==2.7.1+cu126 torchvision==0.22.1+cu126 \
+#       --index-url https://download.pytorch.org/whl/cu126
+#
+# 若只需要 CPU 版本:
+#
+#   pip install torch==2.7.1 torchvision==0.22.1 \
+#       --index-url https://download.pytorch.org/whl/cpu
+#
+# 若使用 conda 环境并希望完全复现, 可用:
+#   conda env export -n microscope > environment.yml
+# ============================================================
